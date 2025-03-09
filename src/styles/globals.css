@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-family-satoshi: 'Satoshi', sans-serif;
+  --font-family-manrope: 'Manrope', 'Manrope Fallback';
+}
+
+h1 {
+  font-family: var(--font-family-satoshi);
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 110.954%;
+  letter-spacing: -2.048px;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 110.954%;
+  letter-spacing: -0.672px;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.28px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+span {
+  font-family: var(--font-family-satoshi);
+}
+.font-manrope {
+  font-family: var(--font-family-manrope);
+}

@@ -78,12 +78,12 @@ export default function Section9() {
 
                 <div className="flex justify-center gap-4 mt-6">
                     <button
-                        className="section-button text-white rounded-[12px] border border-[#E0F2FF66] bg-[#03263D] shadow-[0px_0px_10px_0px_#09F_inset] px-5 py-3 flex justify-center items-center gap-2"
+                        className="cursor-pointer section-button text-white rounded-[12px] border border-[#E0F2FF66] bg-[#03263D] shadow-[0px_0px_10px_0px_#09F_inset] px-5 py-3 flex justify-center items-center gap-2"
                     >
                         Try it now
                     </button>
                     <button
-                        className="section-button text-white rounded-[12px] border border-[#FFFFFF52] bg-gradient-to-r from-[#1F1F1F] via-[#191919] to-[#0F0F0F] px-5 py-3 flex justify-center items-center gap-2"
+                        className="cursor-pointer section-button text-white rounded-[12px] border border-[#FFFFFF52] bg-gradient-to-r from-[#1F1F1F] via-[#191919] to-[#0F0F0F] px-5 py-3 flex justify-center items-center gap-2"
                     >
                         Book your demo
                     </button>

@@ -87,10 +87,10 @@ export default function Section1() {
           Unleash your creativity with our intuitive animation tool. Create stunning videos and bring your vision to life in just a few clicks!
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 section-button">
-          <button className="text-white px-5 py-3 rounded-lg border border-[rgba(224,242,255,0.40)] bg-[#03263D] shadow-md hover:bg-[#045d73] hover:scale-105 transition-all duration-300 ease-in-out">
+          <button className="cursor-pointer text-white px-5 py-3 rounded-lg border border-[rgba(224,242,255,0.40)] bg-[#03263D] shadow-md hover:bg-[#045d73] hover:scale-105 transition-all duration-300 ease-in-out">
             Try it now
           </button>
-          <button className="text-white px-5 py-3 rounded-lg border border-[rgba(255,255,255,0.32)] bg-gradient-to-br from-[#1F1F1F] via-[#191919] to-[#0F0F0F] hover:bg-[#2A2A2A] hover:scale-105 transition-all duration-300 ease-in-out">
+          <button className="cursor-pointer text-white px-5 py-3 rounded-lg border border-[rgba(255,255,255,0.32)] bg-gradient-to-br from-[#1F1F1F] via-[#191919] to-[#0F0F0F] hover:bg-[#2A2A2A] hover:scale-105 transition-all duration-300 ease-in-out">
             Book your demo
           </button>
         </div>

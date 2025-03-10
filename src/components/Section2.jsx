@@ -263,29 +263,36 @@ export default function Section2() {
                 </div>
               </div>
 
-              {/* Horizontal Border */}
-              <hr className="border-b border-[#303030] mb-4" />
+              <div className="border-y border-[#303030] mb-4 flex justify-between items-center py-3">
+              <p className="text-[12px] font-bold text-white mb-0">Opacity</p>
+              <input
+                      type="text"
+                      value="100%"
+                      className="text-[11px] text-white bg-[#191919] rounded-[3.5px] p-1 w-[55px]"
+                      readOnly
+                    />
+              </div>
 
               {/* Accordions */}
               <div className="space-y-2">
-                {['Fill', 'Stroke', 'Shadow', 'Blur'].map((item) => (
-                  <div key={item} className="bg-black rounded">
+                {['Fill', 'Stroke', 'Shadow', 'Blur'].map((item, index) => (
+                  <div key={item} style={{
+                    background: 'radial-gradient(93.48% 63.24% at 46.09% 51.52%, #262626 0%, #191919 100%)',
+                  }} className={`rounded-[6.7px] shadow-[inset_0_0_8px_rgba(73,73,73,0.4)] ${index === 0 ? 'mt-4 mb-4 rotate-[6deg]' : ''}`}>
                     <button
-                    className="w-full text-white flex items-center justify-between p-2 text-[12px] rounded-[6.7px] shadow-[inset_0_0_8px_rgba(73,73,73,0.4)] focus:outline-none"
-                    style={{
-                      background: 'radial-gradient(93.48% 63.24% at 46.09% 51.52%, #262626 0%, #191919 100%)',
-                    }}
+                    className="w-full text-white flex items-center justify-between p-2 text-[12px] shadow-[inset_0_0_8px_rgba(73,73,73,0.4)]  focus:outline-none"
+                    
                       // className="w-full flex items-center justify-between p-2 text-sm text-white hover:bg-gray-800 focus:outline-none"
                       onClick={() => setActiveAccordion(activeAccordion === item ? null : item)}
                     >
                       {item}
-                      <span className="ml-2">+</span>
+                      <span className="ml-2 shadow-[inset_0_0_8px_rgba(73,73,73,0.4)] rounded h-[15px] w-[15px] flex items-center justify-center">{activeAccordion === item ? "-" : "+"}</span>
                     </button>
                     {activeAccordion === item && (
                       <div className="p-2">
                         {item === 'Fill' && (
                           <div>
-                            <div className="flex items-center mb-2">
+                            <div className="flex items-center mb-0">
                               <p className="text-[#9A9A9A] text-[12px] mr-2">Color</p>
                               <input
                                 type="color"

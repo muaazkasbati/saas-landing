@@ -105,7 +105,7 @@ export default function Section6() {
                                 )}
                             </p>
                             <p className="text-gray-400 text-[14px] font-normal mt-4">{plan.description}</p>
-                            <button className="flex h-[40px] px-4 py-3 justify-center items-center gap-2 w-full mt-6 rounded-[10px] bg-white text-black font-semibold">
+                            <button className="cursor-pointer flex h-[40px] px-4 py-3 justify-center items-center gap-2 w-full mt-6 rounded-[10px] bg-white text-black font-semibold">
                                 {plan.buttonText}
                             </button>
                             <ul className="mt-4 flex flex-col items-start gap-5">

@@ -4,53 +4,54 @@ import { motion, useAnimation } from "framer-motion";
 import { useDrag } from "react-use-gesture";
 
 const PremiereLikeComponent = () => {
-    const timelineRef = useRef(null);
-    const playheadRef = useRef(null);
-    const controls = useAnimation();
-    const [time, setTime] = useState(0);
-    const duration = 5; // 5 seconds duration
-  
-    // Image Animation Variants (simulating reveal from center)
-    const imageVariants = {
-    //   initial: {  }, // Start with a small circle
-    //   animate: (custom) => ({
-    //     clipPath: `circle(${custom * 100}% at 50% 50%)`, // Expand circle based on custom value
-    //     transition: { duration: 0.3, ease: "easeInOut" },
-    //   }),
+  const timelineRef = useRef(null);
+  const playheadRef = useRef(null);
+  const controls = useAnimation();
+  const [time, setTime] = useState(0);
+  const duration = 5; // 5 seconds duration
+
+  // Image Animation Variants (using scale and skew)
+  const imageVariants = {
+    initial: { scale: 1, skewY: 0 }, // Start with normal size and no skew
+    animate: (custom) => ({
+      scale: custom, // Shrink from 1 to 0 as time progresses
+      skewY: custom * -10, // Apply skew effect (e.g., -10deg to 0deg)
+      transition: { duration: 0.3, ease: "easeInOut" },
+    }),
+  };
+
+  // Handle Drag for Playhead
+  const bindDrag = useDrag(({ active, movement: [mx], event }) => {
+    if (active) {
+      const timeline = timelineRef.current;
+      const rect = timeline.getBoundingClientRect();
+      const maxX = rect.width - 5; // 5px for playhead width
+      const newX = Math.max(0, Math.min(mx, maxX));
+
+      const playhead = playheadRef.current;
+      playhead.style.left = `${newX}px`;
+
+      // Calculate time based on position
+      const percentage = newX / maxX;
+      const newTime = percentage * duration;
+      setTime(newTime.toFixed(2));
+
+      // Animate image based on time
+      const scaleValue = 1 - (newTime / duration); // Reverse for inward scaling
+      controls.start({ scale: scaleValue, skewY: scaleValue * -10 });
+    }
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (playheadRef.current) playheadRef.current.style.left = "0px";
+      setTime(0);
+      controls.start({ scale: 1, skewY: 0 });
     };
-  
-    // Handle Drag for Playhead
-    const bindDrag = useDrag(({ active, movement: [mx], event }) => {
-      if (active) {
-        const timeline = timelineRef.current;
-        const rect = timeline.getBoundingClientRect();
-        const maxX = rect.width - 10; // 10px for playhead width
-        const newX = Math.max(0, Math.min(mx, maxX));
-  
-        const playhead = playheadRef.current;
-        playhead.style.left = `${newX}px`;
-  
-        // Calculate time based on position
-        const percentage = newX / maxX;
-        const newTime = percentage * duration;
-        setTime(newTime.toFixed(2));
-  
-        // Animate image based on time
-        const clipPercentage = 1 - (newTime / duration); // Reverse for inward animation
-        controls.start();
-      }
-    });
-  
-    useEffect(() => {
-      const handleResize = () => {
-        if (playheadRef.current) playheadRef.current.style.left = "0px";
-        setTime(0);
-        controls.start({ });
-      };
-  
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, [controls]);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [controls]);
 
   return (
     <div className="w-full  text-white flex flex-col items-center relative">

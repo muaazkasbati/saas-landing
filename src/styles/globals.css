@@ -7,8 +7,23 @@
   --font-family-manrope: 'Manrope', 'Manrope Fallback';
 }
 
-h1 {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+span {
   font-family: var(--font-family-satoshi);
+}
+.font-manrope {
+  font-family: var(--font-family-manrope);
+}
+
+h1 {
   font-size: 64px;
   font-weight: 500;
   line-height: 110.954%;
@@ -29,18 +44,39 @@ h5 {
   letter-spacing: -0.28px;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-span {
-  font-family: var(--font-family-satoshi);
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 48px;
+    letter-spacing: -1.5px;
+  }
+
+  h2 {
+    font-size: 40px;
+    letter-spacing: -0.5px;
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
-.font-manrope {
-  font-family: var(--font-family-manrope);
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  h2 {
+    font-size: 28px;
+    letter-spacing: -0.4px;
+  }
+
+  h5 {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
+
